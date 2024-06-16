@@ -16,6 +16,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (Auth::user() == null) {
+            return redirect('login')->with('error', 'Login first to access admin page');
+        }
+
         if (Auth::check() && Auth::user()->role == 'admin') {
             return $next($request);
         }

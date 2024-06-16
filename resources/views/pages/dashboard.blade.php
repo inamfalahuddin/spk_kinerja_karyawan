@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col text-gray-700">
         <div class="card p-3">
-            <h2 class="h3 text-gray-800 mb-3">Selamat Datang !!Users!!</h2>
+            <h2 class="h3 text-gray-800 mb-3">Selamat Datang, {{Auth::user()->username}}</h2>
             <h3 class="h4 mb-0 text-gray-800">
                 SPK Penilaian Kinerja Karyawan dengan Menggunakan Metode Profile Matching
             </h3>
