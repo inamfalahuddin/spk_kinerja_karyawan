@@ -63,7 +63,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('train.index')}}">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Data Train</span></a>
+            <span>Data Pembobotan</span></a>
     </li>
     @endif
 

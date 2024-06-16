@@ -60,6 +60,7 @@
                             <tr>
                                 <td>{{$key +1}}</td>
                                 <td class="text-capitalize">{{$body['id']}}</td>
+                                <td class="text-capitalize">{{$body['nippt']}}</td>
                                 <td class="text-capitalize">{{$body['nama']}}</td>
                                 <td class="text-capitalize">{{$body['jenis_kelamin']}}</td>
                                 <td class="text-capitalize">{{$body['tempat_lahir']}}</td>

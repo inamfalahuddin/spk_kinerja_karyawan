@@ -17,7 +17,7 @@ class KaryawanController extends Controller
     {
         $data = Karyawan::all();
 
-        $data_header = ["No", "ID", "Nama Karyawan", "Jenis Kelamin", "Tempat Lahir", "Tanggal Lahir", "Alamat",  "Action"];
+        $data_header = ["No", "ID", "NIPPT", "Nama Karyawan", "Jenis Kelamin", "Tempat Lahir", "Tanggal Lahir", "Alamat",  "Action"];
         $data_body = $data->toArray();
 
         return view('pages.karyawan', compact('data_body', 'data_header'));

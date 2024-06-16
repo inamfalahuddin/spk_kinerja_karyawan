@@ -47,7 +47,10 @@
                                 <td class="text-capitalize">{{$item['nama_kriteria']}}</td>
                                 @endforeach
                                 @endif
+
+                                @if (Auth::user()->role == 'admin')
                                 <th>Action</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -66,12 +69,16 @@
                                 @foreach ($body['kriteria_data'] as $item)
                                 <td class="text-capitalize">{{$item['nilai']}}</td>
                                 @endforeach
+
+                                @if (Auth::user()->role == 'admin')
                                 <td class="d-flex">
                                     <button class="btn btn-info btn-sm mr-1" data-toggle="modal"
                                         data-target="#editModal{{ $key }}">
                                         <i class="fas fa-edit"></i>
                                     </button>
                                 </td>
+                                @endif
+
                             </tr>
 
                             <!-- Modal Edit untuk setiap data -->
