@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Train;
+use App\Models\Bobot;
 use Illuminate\Http\Request;
 
-class TrainController extends Controller
+class BobotController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Train::all();
+        $data = Bobot::all();
 
         $data_header = ["No", "ID", "Selisih", "Nilai", "Keterangan",  "Action"];
         $data_body = $data->toArray();
 
-        return view('pages.train', compact('data_body', 'data_header'));
+        return view('pages.bobot', compact('data_body', 'data_header'));
     }
 
     /**
@@ -41,7 +41,7 @@ class TrainController extends Controller
             "selisih" => "required|numeric",
         ]);
 
-        $train = Train::create($validatedData);
+        $train = Bobot::create($validatedData);
 
         if ($train) {
             return redirect()->route('train.index')->with('success', 'Train berhasil ditambahkan.');
@@ -78,7 +78,7 @@ class TrainController extends Controller
             "selisih" => "required|numeric",
         ]);
 
-        $train = Train::find($id);
+        $train = Bobot::find($id);
 
         if ($train) {
             $train->update($validatedData);
@@ -94,7 +94,7 @@ class TrainController extends Controller
     public function destroy(string $id)
     {
         // destroy data train
-        $train = Train::find($id);
+        $train = Bobot::find($id);
 
         if ($train) {
             $train->delete();

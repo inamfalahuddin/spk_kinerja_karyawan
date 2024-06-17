@@ -66,11 +66,11 @@ class Nilai extends Model
         $data = Nilai::select(
             'nilais.id_karyawan',
             'karyawans.nama',
-            DB::raw('ROUND(AVG(CASE WHEN kriterias.tipe = \'core\' THEN (SELECT trains.nilai FROM trains WHERE trains.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) AS cf'),
-            DB::raw('ROUND(AVG(CASE WHEN kriterias.tipe = \'secondary\' THEN (SELECT trains.nilai FROM trains WHERE trains.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) AS sf'),
-            DB::raw('ROUND(AVG(CASE WHEN kriterias.tipe = \'core\' THEN (SELECT trains.nilai FROM trains WHERE trains.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) * 0.75 AS cf_x_percent'),
-            DB::raw('ROUND(AVG(CASE WHEN kriterias.tipe = \'secondary\' THEN (SELECT trains.nilai FROM trains WHERE trains.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) * 0.25 AS sf_x_percent'),
-            DB::raw('ROUND(AVG(CASE WHEN kriterias.tipe = \'core\' THEN (SELECT trains.nilai FROM trains WHERE trains.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) * 0.75 + ROUND(AVG(CASE WHEN kriterias.tipe = \'secondary\' THEN (SELECT trains.nilai FROM trains WHERE trains.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) * 0.25 AS total_percent')
+            DB::raw('ROUND(AVG(CASE WHEN kriterias.tipe = \'core\' THEN (SELECT bobots.nilai FROM bobots WHERE bobots.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) AS cf'),
+            DB::raw('ROUND(AVG(CASE WHEN kriterias.tipe = \'secondary\' THEN (SELECT bobots.nilai FROM bobots WHERE bobots.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) AS sf'),
+            DB::raw('ROUND(AVG(CASE WHEN kriterias.tipe = \'core\' THEN (SELECT bobots.nilai FROM bobots WHERE bobots.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) * 0.75 AS cf_x_percent'),
+            DB::raw('ROUND(AVG(CASE WHEN kriterias.tipe = \'secondary\' THEN (SELECT bobots.nilai FROM bobots WHERE bobots.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) * 0.25 AS sf_x_percent'),
+            DB::raw('ROUND(AVG(CASE WHEN kriterias.tipe = \'core\' THEN (SELECT bobots.nilai FROM bobots WHERE bobots.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) * 0.75 + ROUND(AVG(CASE WHEN kriterias.tipe = \'secondary\' THEN (SELECT bobots.nilai FROM bobots WHERE bobots.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) ELSE NULL END), 3) * 0.25 AS total_percent')
         )
             ->join('karyawans', 'nilais.id_karyawan', '=', 'karyawans.id')
             ->join('kriterias', 'kriterias.id', '=', 'nilais.id_kriteria')

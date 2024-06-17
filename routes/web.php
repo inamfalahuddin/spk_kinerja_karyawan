@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BobotController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaryawanController;
@@ -59,10 +60,10 @@ Route::middleware(['admin'])->group(function () {
         'update' => 'kriteria.update',
         'destroy' => 'kriteria.destroy',
     ]);
-    Route::resource('train', TrainController::class)->names([
-        'index' => 'train.index',
-        'store' => 'train.store',
-        'update' => 'train.update',
-        'destroy' => 'train.destroy',
+    Route::resource('bobot', BobotController::class)->names([
+        'index' => 'bobot.index',
+        'store' => 'bobot.store',
+        'update' => 'bobot.update',
+        'destroy' => 'bobot.destroy',
     ]);
 });

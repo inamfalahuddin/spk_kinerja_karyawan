@@ -23,7 +23,7 @@ class PenilaianController extends Controller
                 'kriterias.tipe as tipe_kriteria',
                 'karyawans.nama',
                 DB::raw('(nilais.nilai - kriterias.nilai) AS selisih'),
-                DB::raw("(SELECT trains.nilai FROM trains WHERE trains.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) AS bobot_nilai")
+                DB::raw("(SELECT bobots.nilai FROM bobots WHERE bobots.selisih = (nilais.nilai - kriterias.nilai) LIMIT 1) AS bobot_nilai")
             )
             ->get();
 
