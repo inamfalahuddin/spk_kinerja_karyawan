@@ -208,6 +208,10 @@
                     @csrf
 
                     <div class="form-group">
+                        <label for="inputNIPPT">NIPPT</label>
+                        <input type="text" class="form-control" id="inputNIPPT" name="nippt">
+                    </div>
+                    <div class="form-group">
                         <label for="inputNama">Nama Karyawan</label>
                         <input type="text" class="form-control" id="inputNama" name="nama">
                     </div>

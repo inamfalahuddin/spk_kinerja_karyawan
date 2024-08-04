@@ -37,17 +37,19 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            "nippt" => "required|unique:karyawans,nippt|max:255",
             "nama" => "required|max:255",
             "tempat_lahir" => "required|max:255",
             "tanggal_lahir" => "required|date",
             "jenis_kelamin" => "required|in:L,P",
         ]);
 
+        $validatedData['nippt'] = $request->nippt;
         $validatedData['alamat'] = $request->alamat ?? null;
         $validatedData['email'] = $request->email ?? 'null';
         $validatedData['telepon'] = $request->telepon ?? null;
         $validatedData['jabatan'] = $request->jabatan ?? null;
-
+        
         $karyawan = Karyawan::create($validatedData);
 
         $get_kriteria = Kriteria::all();

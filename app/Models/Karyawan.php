@@ -13,9 +13,11 @@ class Karyawan extends Model
     public $incrementing = false;
     protected $primaryKey = 'id';
     protected $keyType = 'string';
+    protected $table = 'karyawans';
 
     protected $fillable = [
         'id',
+        'nippt',
         'nama',
         'tempat_lahir',
         'tanggal_lahir',
