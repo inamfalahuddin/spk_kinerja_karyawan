@@ -49,8 +49,22 @@ class KaryawanController extends Controller
         $validatedData['email'] = $request->email ?? 'null';
         $validatedData['telepon'] = $request->telepon ?? null;
         $validatedData['jabatan'] = $request->jabatan ?? null;
+                
+        // insert karyawan
+        $dataKaryawan = [
+            'nippt' => $validatedData['nippt'],
+            'nama' => $validatedData['nama'],
+            'tempat_lahir' => $validatedData['tempat_lahir'],
+            'tanggal_lahir' => $validatedData['tanggal_lahir'],
+            'jenis_kelamin' => $validatedData['jenis_kelamin'],
+            'alamat' => $validatedData['alamat'],
+            'email' => $validatedData['email'],
+            'telepon' => $validatedData['telepon'],
+            'jabatan' => $validatedData['jabatan'],
+        ];
         
-        $karyawan = Karyawan::create($validatedData);
+        // insert karyawan to db
+        $karyawan = Karyawan::create($dataKaryawan);
 
         $get_kriteria = Kriteria::all();
 

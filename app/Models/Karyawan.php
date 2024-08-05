@@ -37,19 +37,40 @@ class Karyawan extends Model
         });
     }
 
-    private static function generateUserCode()
+    // public static function generateUserCode()
+    // {
+    //     $latestUser = DB::table('karyawans')->orderBy('id', 'desc')->first();
+
+    //     if (!$latestUser) {
+    //         return 'EMP0001';
+    //     }
+
+    //     $lastUserCode = $latestUser->id;
+    //     $lastNumber = (int) substr($lastUserCode, 3);
+    //     $newNumber = str_pad($lastNumber + 1, 4, '0', STR_PAD_LEFT);
+
+    //     return 'EMP' . $newNumber;
+    // }
+
+    protected static function generateUserCode()
     {
-        $latestUser = DB::table('karyawans')->orderBy('id', 'desc')->first();
+        $prefix = 'EMP';
+        $length = 4;
+
+        $latestUser = DB::table('karyawans')
+            ->where('id', 'LIKE', "$prefix%")
+            ->orderBy('id', 'desc')
+            ->lockForUpdate()
+            ->first();
 
         if (!$latestUser) {
-            return 'EMP0001';
+            return $prefix . str_pad(1, $length, '0', STR_PAD_LEFT);
         }
 
-        $lastUserCode = $latestUser->id;
-        $lastNumber = (int) substr($lastUserCode, 3);
-        $newNumber = str_pad($lastNumber + 1, 4, '0', STR_PAD_LEFT);
-
-        return 'EMP' . $newNumber;
+        $lastUserCode = substr($latestUser->id, strlen($prefix));
+        $lastNumber = (int) $lastUserCode;
+        $newNumber = str_pad($lastNumber + 1, $length, '0', STR_PAD_LEFT);
+        return $prefix . $newNumber;
     }
 
     public function nilais()
