@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Train extends Model
+class Bobot extends Model
 {
     use HasFactory;
 
@@ -32,7 +32,7 @@ class Train extends Model
 
     private static function generateKodeTrain()
     {
-        $latestUser = DB::table('trains')->orderBy('id', 'desc')->first();
+        $latestUser = DB::table('bobots')->orderBy('id', 'desc')->first();
 
         if (!$latestUser) {
             return 'TR0001';

@@ -89,7 +89,7 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <form action="{{ route('train.update', $body['id']) }}" method="POST"
+                                        <form action="{{ route('bobot.update', $body['id']) }}" method="POST"
                                             class="user">
                                             @csrf
                                             @method('PUT')
@@ -144,7 +144,7 @@
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Batal</button>
                                             <!-- Form untuk Menghapus Data -->
-                                            <form action="{{ route('train.destroy', $body['id']) }}" method="POST"
+                                            <form action="{{ route('bobot.destroy', $body['id']) }}" method="POST"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
@@ -176,7 +176,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{route('train.store')}}" method="POST" class="user">
+            <form action="{{route('bobot.store')}}" method="POST" class="user">
                 <div class="modal-body">
                     @csrf
 

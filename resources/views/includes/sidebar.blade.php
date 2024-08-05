@@ -61,7 +61,7 @@
     </li>
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="{{route('train.index')}}">
+        <a class="nav-link" href="{{route('bobot.index')}}">
             <i class="fas fa-fw fa-cog"></i>
             <span>Data Pembobotan</span></a>
     </li>

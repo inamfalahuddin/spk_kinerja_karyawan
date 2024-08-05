@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Train;
+use App\Models\Bobot;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class TrainSeeder extends Seeder
+class BobotSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -71,6 +71,6 @@ class TrainSeeder extends Seeder
             ],
         ];
 
-        Train::insert($data);
+        Bobot::insert($data);
     }
 }
